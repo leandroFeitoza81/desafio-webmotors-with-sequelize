@@ -34,19 +34,3 @@ describe('Test route [GET] "/api/anuncios"', () => {
     expect(res.body).toEqual(expect.arrayContaining([]));
   });
 });
-
-describe('Test route [POST] "/api/anuncios"', () => {
-  it('Test create announcement at route "/api/anuncios"', async () => {
-    const res = await request(app).post('/api/anuncios').send({
-      marca: 'Chevrolet',
-      modelo: 'Opala',
-      versao: '2.5 Comodoro SL/E',
-      ano: '1990',
-      quilometragem: '186000',
-      observacao: 'Vai rodando para qualquer lugar.',
-    });
-
-    expect(res.statusCode).toBe(201);
-    expect(res.body.id).toBeTruthy();
-  });
-});

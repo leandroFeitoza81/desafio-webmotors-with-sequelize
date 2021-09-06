@@ -8,7 +8,7 @@ module.exports = {
   database: process.env.MYSQL_SCHEMA,
   host: process.env.MYSQL_HOSTNAME,
   dialect: process.env.DB_DIALECT || 'mysql',
-  storage: './__tests__/database.sqlite',
+  storage: './__tests__/utils/database.sqlite',
   operatorAliases: false,
   logging: false,
   define: {
