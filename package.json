@@ -1,0 +1,28 @@
+{
+  "name": "desafio-webmotors-with-sequelize",
+  "version": "1.0.0",
+  "description": "Desafio Pratico da WebMotors - Realizar CRUD em uma API REST  - usando sequelize",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leandroFeitoza81/desafio-webmotors-with-sequelize.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leandroFeitoza81/desafio-webmotors-with-sequelize/issues"
+  },
+  "homepage": "https://github.com/leandroFeitoza81/desafio-webmotors-with-sequelize#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.24.2"
+  }
+}
