@@ -24,6 +24,7 @@
         "ignoreRestSiblings": true
       }
     ],
-    "object-curly-newline": "off"
+    "object-curly-newline": "off",
+    "camelcase": "off"
   }
 }
