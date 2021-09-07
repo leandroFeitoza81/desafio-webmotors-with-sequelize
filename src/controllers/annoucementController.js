@@ -34,7 +34,34 @@ const createAnnouncement = async (req, res) => {
   }
 };
 
+const updateAnnouncement = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { marca, modelo, versao, ano, quilometragem, observacao } = req.body;
+
+    const updated = await Service.updateAnnouncement(
+      id,
+      marca,
+      modelo,
+      versao,
+      ano,
+      quilometragem,
+      observacao,
+    );
+
+    if (updated.error) {
+      console.log(updated.error);
+      return res.status(400).json({ message: updated.error });
+    }
+    return res.status(200).json(updated);
+  } catch (e) {
+    console.log(e);
+    return res.status(500).json({ message: 'Error' });
+  }
+};
+
 module.exports = {
   listAllAnnouncements,
   createAnnouncement,
+  updateAnnouncement,
 };
