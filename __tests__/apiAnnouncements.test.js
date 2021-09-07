@@ -141,3 +141,32 @@ describe('Test route [PUT] "/api/anuncios/:id"', () => {
     expect(res.body.observacao).toEqual('Motivo da venda? Vou comprar uma bicicleta.');
   });
 });
+
+describe('Test route [DELETE] "/api/anuncios/:id"', () => {
+  beforeEach(async () => {
+    await truncate();
+  });
+
+  it('Test if is possible remove a announcement', async () => {
+    const data = [
+      {
+        id: 1,
+        ano: 1990,
+        marca: 'Chevrolet',
+        modelo: 'Opala',
+        observacao: 'Vai rodando para qualquer lugar.',
+        quilometragem: 186000,
+        versao: '2.5 Comodoro SL/E',
+      },
+    ];
+
+    tb_AnuncioWebmotors.create(data[0]);
+    const res = await request(app).delete('/api/anuncios/1');
+    expect(res.statusCode).toBe(204);
+  });
+
+  it('Test if sent an id that does not exists. Return is expected', async () => {
+    const res = await request(app).delete('/api/anuncios/99999999');
+    expect(res.statusCode).toBe(404);
+  });
+});
