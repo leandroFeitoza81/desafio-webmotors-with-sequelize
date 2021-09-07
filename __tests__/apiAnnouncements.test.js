@@ -35,6 +35,39 @@ describe('Test route [GET] "/api/anuncios"', () => {
   });
 });
 
+describe('Test route [GET] "/api/anuncios/:id"', () => {
+  beforeEach(async () => {
+    await truncate();
+  });
+
+  it('Test if is possible make search a annuouncement by id', async () => {
+    const data = [
+      {
+        id: 1,
+        ano: 1990,
+        marca: 'Chevrolet',
+        modelo: 'Opala',
+        observacao: 'Vai rodando para qualquer lugar.',
+        quilometragem: 186000,
+        versao: '2.5 Comodoro SL/E',
+      },
+    ];
+
+    tb_AnuncioWebmotors.create(data[0]);
+    const res = await request(app).get('/api/anuncios/1');
+
+    expect(res.statusCode).toBe(200);
+    expect(res.body.marca).toBeTruthy();
+    expect(res.body.marca).toEqual('Chevrolet');
+  });
+
+  it('Test if returns is expected when using invalid id', async () => {
+    const res = await request(app).get('/api/anuncios/99999');
+    expect(res.statusCode).toBe(404);
+    expect(res.body.message).toEqual('Anúncio não encontrado.');
+  });
+});
+
 describe('Test route [POST] "/api/anuncios"', () => {
   beforeEach(async () => {
     await truncate();

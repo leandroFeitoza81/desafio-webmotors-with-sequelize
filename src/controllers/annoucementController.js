@@ -50,7 +50,6 @@ const updateAnnouncement = async (req, res) => {
     );
 
     if (updated.error) {
-      console.log(updated.error);
       return res.status(400).json({ message: updated.error });
     }
     return res.status(200).json(updated);
@@ -60,8 +59,24 @@ const updateAnnouncement = async (req, res) => {
   }
 };
 
+const getAnnouncementByID = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const annoucement = await Service.getAnnouncementByID(id);
+    if (annoucement.error) {
+      return res.status(404).json({ message: annoucement.error });
+    }
+
+    res.status(200).json(annoucement);
+  } catch (e) {
+    console.log(e);
+    return res.status(500).json({ message: 'Erro interno.' });
+  }
+};
+
 module.exports = {
   listAllAnnouncements,
   createAnnouncement,
   updateAnnouncement,
+  getAnnouncementByID,
 };

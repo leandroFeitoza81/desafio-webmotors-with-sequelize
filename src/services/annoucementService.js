@@ -34,7 +34,17 @@ const updateAnnouncement = async (id, marca, modelo, versao, ano, quilometragem,
   return resultSave;
 };
 
+const getAnnouncementByID = async (id) => {
+  const annoucement = await tb_AnuncioWebmotors.findByPk(id);
+
+  if (!annoucement) {
+    return { error: 'Anúncio não encontrado.' };
+  }
+  return annoucement.dataValues;
+};
+
 module.exports = {
   createAnnouncement,
   updateAnnouncement,
+  getAnnouncementByID,
 };
