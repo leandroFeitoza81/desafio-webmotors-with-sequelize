@@ -33,6 +33,13 @@ describe('Test route [GET] "/api/anuncios"', () => {
     expect(res.statusCode).toBe(200);
     expect(res.body).toEqual(expect.arrayContaining([]));
   });
+
+  it('Test returns went invalid URL', async () => {
+    const res = await request(app).get('/api/anunciossss/');
+    expect(res.statusCode).toBe(404);
+    expect(res.body).toHaveProperty('message');
+    expect(res.body.message).toEqual('Endpoint não encontrado.');
+  });
 });
 
 describe('Test route [GET] "/api/anuncios/:id"', () => {
@@ -66,6 +73,13 @@ describe('Test route [GET] "/api/anuncios/:id"', () => {
     expect(res.statusCode).toBe(404);
     expect(res.body.message).toEqual('Anúncio não encontrado.');
   });
+
+  it('Test returns went invalid URL', async () => {
+    const res = await request(app).get('/api/anunciossss/1');
+    expect(res.statusCode).toBe(404);
+    expect(res.body).toHaveProperty('message');
+    expect(res.body.message).toEqual('Endpoint não encontrado.');
+  });
 });
 
 describe('Test route [POST] "/api/anuncios"', () => {
@@ -87,7 +101,7 @@ describe('Test route [POST] "/api/anuncios"', () => {
     expect(res.body.id).toBeTruthy();
   });
 
-  it('Test return from api when passing missing parameters', async () => {
+  it('Test the return from api when passing missing parameters', async () => {
     const res = await request(app).post('/api/anuncios').send({
       marca: 'Chevrolet',
       modelo: 'Opala',
@@ -98,6 +112,20 @@ describe('Test route [POST] "/api/anuncios"', () => {
 
     expect(res.statusCode).toBe(400);
     expect(res.body).toEqual('Campo inválido ou não preenchido.');
+  });
+
+  it('Test returns went invalid URL', async () => {
+    const res = await request(app).post('/api/anunciossss/1').send({
+      ano: 1990,
+      marca: 'Chevrolet',
+      modelo: 'Opala',
+      observacao: 'Vai rodando para qualquer lugar.',
+      quilometragem: 186000,
+      versao: '2.5 Comodoro SL/E',
+    });
+    expect(res.statusCode).toBe(404);
+    expect(res.body).toHaveProperty('message');
+    expect(res.body.message).toEqual('Endpoint não encontrado.');
   });
 });
 
@@ -140,6 +168,20 @@ describe('Test route [PUT] "/api/anuncios/:id"', () => {
     expect(res.statusCode).toBe(200);
     expect(res.body.observacao).toEqual('Motivo da venda? Vou comprar uma bicicleta.');
   });
+
+  it('Test returns went invalid URL', async () => {
+    const res = await request(app).put('/api/anunncios/1').send({
+      marca: 'Chevrolet',
+      modelo: 'Opala',
+      versao: '2.5 Comodoro SL/E',
+      ano: 1990,
+      quilometragem: 186000,
+      observacao: 'Motivo da venda? Vou comprar uma bicicleta.',
+    });
+    expect(res.statusCode).toBe(404);
+    expect(res.body).toHaveProperty('message');
+    expect(res.body.message).toEqual('Endpoint não encontrado.');
+  });
 });
 
 describe('Test route [DELETE] "/api/anuncios/:id"', () => {
@@ -168,5 +210,19 @@ describe('Test route [DELETE] "/api/anuncios/:id"', () => {
   it('Test if sent an id that does not exists. Return is expected', async () => {
     const res = await request(app).delete('/api/anuncios/99999999');
     expect(res.statusCode).toBe(404);
+  });
+
+  it('Test returns went invalid URL', async () => {
+    const res = await request(app).delete('/api/anunncios/1').send({
+      marca: 'Chevrolet',
+      modelo: 'Opala',
+      versao: '2.5 Comodoro SL/E',
+      ano: 1990,
+      quilometragem: 186000,
+      observacao: 'Motivo da venda? Vou comprar uma bicicleta.',
+    });
+    expect(res.statusCode).toBe(404);
+    expect(res.body).toHaveProperty('message');
+    expect(res.body.message).toEqual('Endpoint não encontrado.');
   });
 });
