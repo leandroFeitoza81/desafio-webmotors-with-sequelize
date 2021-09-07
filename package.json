@@ -8,8 +8,7 @@
     "test": "NODE_ENV=test jest",
     "posttest": "NODE_ENV=test npx sequelize db:migrate:undo:all",
     "start": "node .",
-    "dev": "nodemon . --ignore __tests__",
-    "swagger-autogen": "node swagger.js"
+    "dev": "nodemon . --ignore __tests__"
   },
   "repository": {
     "type": "git",
@@ -28,8 +27,7 @@
     "express": "^4.17.1",
     "mysql2": "^2.3.0",
     "sequelize": "^6.6.5",
-    "sqlite3": "^5.0.2",
-    "swagger-autogen": "^2.11.2"
+    "sqlite3": "^5.0.2"
   },
   "devDependencies": {
     "eslint": "^7.32.0",
@@ -38,7 +36,6 @@
     "jest": "^27.1.0",
     "nodemon": "^2.0.12",
     "sequelize-cli": "^6.2.0",
-    "supertest": "^6.1.6",
-    "swagger-ui-express": "^4.1.6"
+    "supertest": "^6.1.6"
   }
 }
