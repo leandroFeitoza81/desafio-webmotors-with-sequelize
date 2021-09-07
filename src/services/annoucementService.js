@@ -43,8 +43,17 @@ const getAnnouncementByID = async (id) => {
   return annoucement.dataValues;
 };
 
+const removeAnnouncement = async (id) => {
+  const deleted = await tb_AnuncioWebmotors.destroy({ where: { id } });
+  if (deleted === 0) {
+    return { error: 'Erro' };
+  }
+  return deleted;
+};
+
 module.exports = {
   createAnnouncement,
   updateAnnouncement,
   getAnnouncementByID,
+  removeAnnouncement,
 };

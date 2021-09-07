@@ -74,9 +74,25 @@ const getAnnouncementByID = async (req, res) => {
   }
 };
 
+const removeAnnouncement = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deleted = await Service.removeAnnouncement(id);
+    if (deleted.error) {
+      return res.status(404).json({ message: deleted.error });
+    }
+
+    res.status(204).json(deleted);
+  } catch (e) {
+    console.log(e);
+    return res.status(500).json({ message: 'Erro interno.' });
+  }
+};
+
 module.exports = {
   listAllAnnouncements,
   createAnnouncement,
   updateAnnouncement,
   getAnnouncementByID,
+  removeAnnouncement,
 };
