@@ -10,7 +10,7 @@
   "extends": "airbnb-base",
   "parserOptions": { "ecmaVersion": 11 },
   "rules": {
-    // "function-paren-newline": ["error", "always"],
+    "camelcase": "off",
     "no-console": "off",
     "no-alert": "off",
     "arrow-parens": [2, "always"],
