@@ -25,7 +25,7 @@ const createAnnouncement = async (req, res) => {
     );
 
     if (announcement.error) {
-      return res.status(400).json(announcement.error);
+      return res.status(400).json({ message: announcement.error });
     }
     res.status(201).json(announcement);
   } catch (e) {
@@ -55,7 +55,7 @@ const updateAnnouncement = async (req, res) => {
     return res.status(200).json(updated);
   } catch (e) {
     console.log(e);
-    return res.status(500).json({ message: 'Error' });
+    return res.status(500).json({ message: 'Erro Interno' });
   }
 };
 
