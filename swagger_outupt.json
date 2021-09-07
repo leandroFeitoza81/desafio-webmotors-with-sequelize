@@ -1,0 +1,205 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "API de Anuncios da Webmotors.",
+    "description": "Api desenvolvida para o teste prático da Webmotors.",
+    "version": "1.0.0"
+  },
+  "host": "localhost:3000/api",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "anuncios",
+      "description": "É possivel criar, editar, consultar e deletar seu anuncio."
+    },
+    {
+      "name": "documentation",
+      "description": "Endpoint que contém a documentação desta API."
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "consumes": [],
+  "produces": [],
+  "paths": {
+    "/docs": {
+      "get": {
+        "tags": [
+          "documentation"
+        ],
+        "description": "Endpoint que contém a documentação desta API.",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/anuncios/{id}": {
+      "get": {
+        "tags": [
+          "anuncios"
+        ],
+        "description": "Endpoint para buscar um anuncio especifico na base.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "anuncios"
+        ],
+        "description": "Endpoint para atualizar um anuncio especifico na base.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "obj",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "marca": {
+                  "example": "any"
+                },
+                "modelo": {
+                  "example": "any"
+                },
+                "versao": {
+                  "example": "any"
+                },
+                "ano": {
+                  "example": "any"
+                },
+                "quilometragem": {
+                  "example": "any"
+                },
+                "observacao": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "anuncios"
+        ],
+        "description": "Endpoint para remover um anuncio especifico na base.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/anuncios": {
+      "get": {
+        "tags": [
+          "anuncios"
+        ],
+        "description": "Endpoint para listar anuncios na base.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "anuncios"
+        ],
+        "description": "Endpoint para criar um anuncio na base.",
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "marca": {
+                  "example": "any"
+                },
+                "modelo": {
+                  "example": "any"
+                },
+                "versao": {
+                  "example": "any"
+                },
+                "ano": {
+                  "example": "any"
+                },
+                "quilometragem": {
+                  "example": "any"
+                },
+                "observacao": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {}
+}

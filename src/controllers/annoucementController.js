@@ -2,6 +2,8 @@ const Service = require('../services/annoucementService');
 const { tb_AnuncioWebmotors } = require('../models');
 
 const listAllAnnouncements = async (req, res) => {
+  // #swagger.tags = ['anuncios']
+  // #swagger.description = 'Endpoint para listar anuncios na base.'
   try {
     const allAnnouncements = await tb_AnuncioWebmotors.findAll();
 
@@ -13,6 +15,9 @@ const listAllAnnouncements = async (req, res) => {
 };
 
 const createAnnouncement = async (req, res) => {
+  // #swagger.tags = ['anuncios']
+  // #swagger.description = 'Endpoint para criar um anuncio na base.'
+
   try {
     const { marca, modelo, versao, ano, quilometragem, observacao } = req.body;
     const announcement = await Service.createAnnouncement(
@@ -35,6 +40,8 @@ const createAnnouncement = async (req, res) => {
 };
 
 const updateAnnouncement = async (req, res) => {
+  // #swagger.tags = ['anuncios']
+  // #swagger.description = 'Endpoint para atualizar um anuncio especifico na base.'
   try {
     const { id } = req.params;
     const { marca, modelo, versao, ano, quilometragem, observacao } = req.body;
@@ -60,6 +67,8 @@ const updateAnnouncement = async (req, res) => {
 };
 
 const getAnnouncementByID = async (req, res) => {
+  // #swagger.tags = ['anuncios']
+  // #swagger.description = 'Endpoint para buscar um anuncio especifico na base.'
   try {
     const { id } = req.params;
     const annoucement = await Service.getAnnouncementByID(id);
@@ -75,6 +84,8 @@ const getAnnouncementByID = async (req, res) => {
 };
 
 const removeAnnouncement = async (req, res) => {
+  // #swagger.tags = ['anuncios']
+  // #swagger.description = 'Endpoint para remover um anuncio especifico na base.'
   try {
     const { id } = req.params;
     const deleted = await Service.removeAnnouncement(id);

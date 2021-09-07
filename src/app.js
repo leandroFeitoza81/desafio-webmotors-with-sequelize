@@ -3,14 +3,12 @@ require('dotenv').config({
 });
 
 const express = require('express');
-const swaggerUi = require('swagger-ui-express');
-const swaggerFile = require('../swagger_output.json');
 
 const app = express();
+
 const routes = require('./routes');
 
 app.use(express.json());
-app.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
 app.use('/api', routes);
 app.all('*', (_req, res) => {
