@@ -43,7 +43,7 @@ Para execução é necessário o Git para baixar o projeto, o NodeJS para execu�
   - no terminal execute:
   ```bash
   $ npx sequelize db:create
-  $ npx sequelize db:migrations
+  $ npx sequelize db:migrate
   ```
 - Execute a aplicação
   ```bash

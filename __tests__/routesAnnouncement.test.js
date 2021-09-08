@@ -111,7 +111,8 @@ describe('Test route [POST] "/api/anuncios"', () => {
     });
 
     expect(res.statusCode).toBe(400);
-    expect(res.body).toEqual('Campo inválido ou não preenchido.');
+    expect(res.body).toHaveProperty('message');
+    expect(res.body.message).toEqual('Campo inválido ou não preenchido.');
   });
 
   it('Test returns went invalid URL', async () => {
