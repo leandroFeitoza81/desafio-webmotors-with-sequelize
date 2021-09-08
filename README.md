@@ -50,6 +50,10 @@ Para execução é necessário o Git para baixar o projeto, o NodeJS para execu�
   $ npm start
   ```
 
+### Documentação:
+
+A documentação deste projeto pode ser acessada pelo navegador no endereço: http://localhost:3000/api/docs/
+
 ### Execução dos testes:
 
 Na raiz do projeto abra um terminal e execute:

@@ -1,0 +1,141 @@
+{
+	"info": {
+		"_postman_id": "5df2375d-0c8a-4b39-9962-e7ed2264e859",
+		"name": "CRUD - Webmotors",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET - LISTA",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/anuncios",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"anuncios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Publica Anuncio",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"marca\": \"Chevrolet\",\n    \"modelo\": \"Corsa\",\n    \"versao\": \"Sedan\",\n    \"ano\": \"1999\",\n    \"quilometragem\": \"350000\",\n    \"observacao\": \"Todo original\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/anuncios",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"anuncios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atualiza Anuncio",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"marca\": \"Chevrolset\",\n    \"modelo\": \"Kaddet\",\n    \"versao\": \"DL\",\n    \"ano\": \"1988\",\n    \"quilometragem\": \"40\",\n    \"observacao\": \"vrrruuuummmm\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/anuncios/id",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"anuncios",
+						"id"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deleta Anuncio",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3000/api/anuncios/id",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"anuncios",
+						"id"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lista um unico anuncio",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/anuncios/id",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"anuncios",
+						"id"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
