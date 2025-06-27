@@ -6,6 +6,7 @@ const listAllAnnouncements = async (req, res) => {
   // #swagger.description = 'Endpoint para listar anuncios na base.'
   try {
     const allAnnouncements = await tb_AnuncioWebmotors.findAll();
+    console.log('sera que foi no banco?', allAnnouncements)
 
     res.status(200).json(allAnnouncements);
   } catch (e) {
